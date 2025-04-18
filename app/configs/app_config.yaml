@@ -1,0 +1,18 @@
+app:
+  name: "ml-multiclass-app"
+  debug: true
+  host: "0.0.0.0"
+  port: 8000
+
+api:
+  prefix: "/api/v1"
+  timeout: 60
+
+storage:
+  model_path: "/app/data/models"
+  data_path: "/app/data/processed"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "/app/logs/app.log"

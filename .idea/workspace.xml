@@ -4,29 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e19cd87d-364f-426d-b82e-fc294bba1614" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/AutoBKP.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/logging.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ml/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ml/data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ml/data/preprocessing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ml/data/validation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ml/inference/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ml/inference/predict.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ml/model/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ml/model/model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ml/model/train.py" afterDir="false" />
+    <list default="true" id="e19cd87d-364f-426d-b82e-fc294bba1614" name="Changes" comment="Cau truc du an">
+      <change afterPath="$PROJECT_DIR$/app/ml/models/model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/ml/models/train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/scripts/evaluate_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/scripts/train_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/test_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/test_preprocessing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/logging.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/logging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ml/data/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/ml/data/preprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ml/data/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/ml/data/validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ml/inference/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/ml/inference/predict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ml/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/configs/app_config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ml/model/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/configs/model_config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ml/model/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/ml/models/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,14 +50,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Python\AutoBKP\app" />
@@ -105,6 +108,35 @@
       <option name="presentableId" value="Default" />
       <updated>1744860778497</updated>
     </task>
+    <task id="LOCAL-00001" summary="Cau truc du an">
+      <option name="closed" value="true" />
+      <created>1744957442389</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744957442389</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Cau truc du an">
+      <option name="closed" value="true" />
+      <created>1744957470055</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744957470055</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Cau truc du an">
+      <option name="closed" value="true" />
+      <created>1744957513532</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744957513532</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Cau truc du an" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cau truc du an" />
   </component>
 </project>
