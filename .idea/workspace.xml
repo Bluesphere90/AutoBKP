@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e19cd87d-364f-426d-b82e-fc294bba1614" name="Changes" comment="Cau truc du an" />
+    <list default="true" id="e19cd87d-364f-426d-b82e-fc294bba1614" name="Changes" comment="Cau truc du an">
+      <change afterPath="$PROJECT_DIR$/app/data/raw/TrainingData.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/ml/data/vietnamese_preprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/configs/model_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/configs/model_config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ml/data/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/ml/data/preprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ml/models/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/ml/models/train.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,13 +31,16 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2vq7W4h7ryi7Zjb3tduZ1xAH8yg" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
@@ -123,6 +133,7 @@
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Cau truc du an" />
     <option name="LAST_COMMIT_MESSAGE" value="Cau truc du an" />
   </component>

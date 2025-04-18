@@ -1,3 +1,4 @@
+# app/ml/data/preprocessing.py
 import numpy as np
 import pandas as pd
 from typing import Dict, Tuple, Union, List, Any
@@ -6,9 +7,12 @@ from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 from sklearn.impute import SimpleImputer
 import joblib
 import os
+import re
+import unicodedata
 
 from app.core.config import settings, get_model_config
 from app.core.logging import Logger
+from app.ml.data.vietnamese_preprocessing import DataProcessor  # Import DataProcessor mới
 
 logger = Logger(__name__)
 
@@ -34,6 +38,15 @@ class DataPreprocessor:
         self.scalers = {}
         self.encoders = {}
         self.imputers = {}
+        self.class_mapping = {}
+
+        # Thêm flag xử lý tiếng Việt và mã số thuế
+        self.vietnamese_processing = self.config.get("vietnamese_processing", False)
+        self.tax_id_processing = self.config.get("tax_id_processing", False)
+
+        # Khởi tạo Vietnamese Processor nếu cần
+        if self.vietnamese_processing:
+            self.vietnamese_processor = DataProcessor()
 
         self.scaling_method = self.config.get("scaling", "standard")
         self.encoding_method = self.config.get("categorical_encoding", "one_hot")
@@ -54,17 +67,49 @@ class DataPreprocessor:
         """
         logger.info(f"Fitting preprocessor on data with shape {X.shape}")
 
+        # Xử lý dữ liệu tiếng Việt và mã số thuế nếu cần
+        if self.vietnamese_processing:
+            logger.info("Applying Vietnamese data processing")
+            # Lưu lại tên các cột
+            self.original_columns = X.columns.tolist()
+
+            # Tìm và lưu tên cột target nếu có
+            target_col_name = None
+            if y is not None and isinstance(y, pd.Series) and y.name:
+                target_col_name = y.name
+
+            # Tạo DataFrame kết hợp để xử lý
+            if y is not None and target_col_name:
+                combined_df = X.copy()
+                combined_df[target_col_name] = y
+
+                # Áp dụng Vietnamese processor
+                processed_df = self.vietnamese_processor.fit_transform(combined_df, target_col=target_col_name)
+
+                # Tách lại X và cập nhật các mapping
+                X = processed_df.drop(columns=[target_col_name, f"{target_col_name}_encoded"])
+
+                # Lưu lại target mapping nếu có
+                if hasattr(self.vietnamese_processor, 'target_mapping') and self.vietnamese_processor.target_mapping:
+                    self.class_mapping = self.vietnamese_processor.target_mapping
+
+                # Sau bước xử lý tiếng Việt, các bước xử lý khác vẫn sẽ tiếp tục
+            else:
+                # Xử lý chỉ với X nếu không có target
+                X = self.vietnamese_processor.fit_transform(X)
+
         # Xử lý missing values
         self._fit_imputers(X)
 
         # Feature scaling
         self._fit_scalers(X)
 
-        # Encoding categorical features
-        self._fit_encoders(X)
+        # Encoding categorical features (nếu chưa được xử lý bởi Vietnamese processor)
+        if not self.vietnamese_processing:
+            self._fit_encoders(X)
 
-        # Label encoding cho target nếu cần
-        if y is not None and self.encoding_method == "label":
+        # Label encoding cho target nếu cần và chưa được xử lý
+        if y is not None and not self.vietnamese_processing:
             self._fit_target_encoder(y)
 
         return self
@@ -84,14 +129,23 @@ class DataPreprocessor:
         # Copy để tránh thay đổi dữ liệu gốc
         X_transformed = X.copy()
 
+        # Xử lý dữ liệu tiếng Việt và mã số thuế nếu cần
+        if self.vietnamese_processing:
+            logger.info("Applying Vietnamese data transformation")
+            X_transformed = self.vietnamese_processor.transform(X_transformed)
+
+            # Sau bước xử lý tiếng Việt, các bước xử lý khác vẫn sẽ tiếp tục nếu có columns cần xử lý thêm
+            # (như các cột số chưa được scale)
+
         # Xử lý missing values
         X_transformed = self._transform_imputers(X_transformed)
 
         # Feature scaling
         X_transformed = self._transform_scalers(X_transformed)
 
-        # Encoding categorical features
-        X_transformed = self._transform_encoders(X_transformed)
+        # Encoding categorical features nếu chưa được xử lý
+        if not self.vietnamese_processing:
+            X_transformed = self._transform_encoders(X_transformed)
 
         return X_transformed
 

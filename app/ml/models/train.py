@@ -116,8 +116,14 @@ class ModelTrainer:
 
         logger.info(f"Starting training process for models: {model_id}")
 
-        # Tiền xử lý dữ liệu
-        preprocessor = DataPreprocessor()
+        # Tiền xử lý dữ liệu - cập nhật config để bao gồm cấu hình Vietnamese processing
+        preprocessor_config = self.config.get("preprocessing", {})
+        # Kiểm tra xem có cần xử lý tiếng Việt và mã số thuế không
+        preprocessor_config["vietnamese_processing"] = self.config.get("preprocessing", {}).get("vietnamese_processing",
+                                                                                                False)
+        preprocessor_config["tax_id_processing"] = self.config.get("preprocessing", {}).get("tax_id_processing", False)
+
+        preprocessor = DataPreprocessor(preprocessor_config)
         validator = DataValidator()
 
         # Phân chia dữ liệu

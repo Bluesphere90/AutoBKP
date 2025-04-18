@@ -115,3 +115,40 @@ def test_preprocessor_save_load(sample_data, tmpdir):
 
     # So sánh kết quả
     pd.testing.assert_frame_equal(X_transformed_original, X_transformed_loaded)
+
+
+def test_vietnamese_preprocessing(sample_data):
+    """Test xử lý dữ liệu tiếng Việt."""
+    X, y = sample_data
+
+    # Thêm một số cột text tiếng Việt vào dữ liệu mẫu
+    X['text_col'] = ['Công ty TNHH A', 'Công ty TNHH B', 'Công ty Cổ phần C',
+                     'CÔNG TY D', 'Công Ty E', 'Công ty F', 'Công ty G']
+    X['mst'] = ['0123456789', '9876543210', '1234567890',
+                '0987654321', '1122334455', '5544332211', '1029384756']
+
+    # Khởi tạo preprocessor với vietnamese_processing=True
+    config = {
+        'scaling': 'standard',
+        'categorical_encoding': 'one_hot',
+        'missing_values': 'mean',
+        'vietnamese_processing': True,
+        'tax_id_processing': True
+    }
+    preprocessor = DataPreprocessor(config)
+
+    # Fit và transform dữ liệu
+    X_transformed = preprocessor.fit_transform(X, y)
+
+    # Kiểm tra kết quả
+    assert X_transformed is not None
+    assert isinstance(X_transformed, pd.DataFrame)
+    assert X_transformed.shape[0] == X.shape[0]  # Số hàng giữ nguyên
+
+    # Kiểm tra các cột mới từ xử lý mã số thuế
+    assert 'mst_length' in X_transformed.columns
+    assert 'mst_is_branch' in X_transformed.columns
+    assert 'mst_province_code' in X_transformed.columns
+
+    # Kiểm tra encoding của cột text tiếng Việt
+    assert 'text_col_encoded' in X_transformed.columns

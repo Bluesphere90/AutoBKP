@@ -21,6 +21,8 @@ preprocessing:
   scaling: "standard"  # Có thể là: standard, minmax, robust
   categorical_encoding: "one_hot"  # Có thể là: one_hot, label
   missing_values: "mean"  # Có thể là: mean, median, most_frequent
+  vietnamese_processing: true  # Bật/tắt xử lý dữ liệu tiếng Việt
+  tax_id_processing: true  # Bật/tắt xử lý đặc biệt cho mã số thuế
 
 training:
   test_size: 0.2

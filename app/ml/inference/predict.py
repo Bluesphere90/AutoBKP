@@ -103,8 +103,20 @@ class ModelPredictor:
         if self.preprocessor is not None:
             # Chuyển đổi thành DataFrame nếu cần
             if not isinstance(X_array, pd.DataFrame):
-                # Tạo DataFrame với tên cột mặc định
-                X_df = pd.DataFrame(X_array)
+                # Nếu X_array là ndarray, chuyển thành DataFrame
+                # Lưu ý: Cần bảo đảm tên cột khớp với lúc training
+                if hasattr(self.preprocessor, 'original_columns') and self.preprocessor.original_columns:
+                    # Nếu có lưu tên cột gốc (từ Vietnamese processing)
+                    column_names = self.preprocessor.original_columns
+                    # Đảm bảo số lượng cột khớp
+                    if X_array.shape[1] == len(column_names):
+                        X_df = pd.DataFrame(X_array, columns=column_names)
+                    else:
+                        # Nếu số cột không khớp, tạo tên cột mặc định
+                        X_df = pd.DataFrame(X_array)
+                else:
+                    # Tạo DataFrame với tên cột mặc định
+                    X_df = pd.DataFrame(X_array)
             else:
                 X_df = X_array
 
@@ -176,8 +188,20 @@ class ModelPredictor:
         if self.preprocessor is not None:
             # Chuyển đổi thành DataFrame nếu cần
             if not isinstance(X_array, pd.DataFrame):
-                # Tạo DataFrame với tên cột mặc định
-                X_df = pd.DataFrame(X_array)
+                # Nếu X_array là ndarray, chuyển thành DataFrame
+                # Lưu ý: Cần bảo đảm tên cột khớp với lúc training
+                if hasattr(self.preprocessor, 'original_columns') and self.preprocessor.original_columns:
+                    # Nếu có lưu tên cột gốc (từ Vietnamese processing)
+                    column_names = self.preprocessor.original_columns
+                    # Đảm bảo số lượng cột khớp
+                    if X_array.shape[1] == len(column_names):
+                        X_df = pd.DataFrame(X_array, columns=column_names)
+                    else:
+                        # Nếu số cột không khớp, tạo tên cột mặc định
+                        X_df = pd.DataFrame(X_array)
+                else:
+                    # Tạo DataFrame với tên cột mặc định
+                    X_df = pd.DataFrame(X_array)
             else:
                 X_df = X_array
 
