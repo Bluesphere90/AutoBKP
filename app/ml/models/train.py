@@ -53,7 +53,7 @@ class ModelTrainer:
         try:
             # Load dữ liệu
             if data_path.endswith(".csv"):
-                df = pd.read_csv(data_path)
+                df = pd.read_csv(data_path, sep=';')
             elif data_path.endswith(".parquet"):
                 df = pd.read_parquet(data_path)
             elif data_path.endswith((".xls", ".xlsx")):

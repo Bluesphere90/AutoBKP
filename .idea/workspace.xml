@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e19cd87d-364f-426d-b82e-fc294bba1614" name="Changes" comment="Cau truc du an">
-      <change afterPath="$PROJECT_DIR$/app/data/raw/TrainingData.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ml/data/vietnamese_preprocessing.py" afterDir="false" />
+    <list default="true" id="e19cd87d-364f-426d-b82e-fc294bba1614" name="Changes" comment="Cap nhat them tinh nang xu ly Tieng Viet">
+      <change afterPath="$PROJECT_DIR$/configs/app_config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/configs/model_config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml_multiclass_app.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml_multiclass_app.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml_multiclass_app.egg-info/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml_multiclass_app.egg-info/requires.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml_multiclass_app.egg-info/top_level.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/configs/model_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/configs/model_config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ml/data/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/ml/data/preprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/configs/app_config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/configs/model_config.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ml/models/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/ml/models/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,20 +43,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Python\AutoBKP\app" />
@@ -129,12 +134,21 @@
       <option name="project" value="LOCAL" />
       <updated>1744965464430</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Cap nhat them tinh nang xu ly Tieng Viet">
+      <option name="closed" value="true" />
+      <created>1744969753716</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1744969753716</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Cau truc du an" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cau truc du an" />
+    <MESSAGE value="Cap nhat them tinh nang xu ly Tieng Viet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cap nhat them tinh nang xu ly Tieng Viet" />
   </component>
 </project>

@@ -145,8 +145,10 @@ class DataValidator:
 
         # Kiểm tra class imbalance nếu có y
         if y is not None:
-            class_counts = y.value_counts()
-            report["class_distribution"] = class_counts.to_dict()
+            # Tính class_counts bằng np.unique
+            unique_values, counts = np.unique(y, return_counts=True)
+            class_counts = pd.Series(counts, index=unique_values)
+            report["class_distribution"] = {str(val): count for val, count in zip(unique_values, counts)}
 
             # Tính imbalance ratio (max/min)
             imbalance_ratio = class_counts.max() / class_counts.min()

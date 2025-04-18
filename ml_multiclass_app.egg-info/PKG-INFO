@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: ml-multiclass-app
+Version: 0.1.0
+Summary: A machine learning application for multi-class classification
+Author: Your Name
+Author-email: your.email@example.com
+Requires-Dist: numpy>=1.21.0
+Requires-Dist: pandas>=1.3.0
+Requires-Dist: scikit-learn>=0.24.2
+Requires-Dist: tensorflow>=2.5.0
+Requires-Dist: fastapi>=0.68.0
+Requires-Dist: uvicorn>=0.15.0
+Requires-Dist: pydantic>=1.8.2
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: summary
