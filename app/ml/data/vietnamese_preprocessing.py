@@ -274,8 +274,9 @@ class DataProcessor:
         df[f'{tax_id_col}_is_branch'] = df[tax_id_col].apply(lambda x: 1 if '-' in str(x) else 0)
 
         # Lấy 2 số đầu tiên của mã số thuế (thường cho biết tỉnh/thành phố)
+        # Đảm bảo chỉ lấy số và bỏ qua ký tự đặc biệt
         df[f'{tax_id_col}_province_code'] = df[tax_id_col].apply(
-            lambda x: str(x)[:2] if pd.notna(x) and len(str(x)) >= 2 else "00"
+            lambda x: re.sub(r'[^0-9]', '', str(x))[:2] if pd.notna(x) else "00"
         )
 
         return df
