@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e19cd87d-364f-426d-b82e-fc294bba1614" name="Changes" comment="Chỉnh sửa docker file và requirements cho phu hop" />
+    <list default="true" id="e19cd87d-364f-426d-b82e-fc294bba1614" name="Changes" comment="Dieu chinh su dung pydantic 1.8.2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745226877163</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Dieu chinh su dung pydantic 1.8.2">
+      <option name="closed" value="true" />
+      <created>1745227221403</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1745227221403</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -178,6 +189,7 @@
     <MESSAGE value="Cau truc du an" />
     <MESSAGE value="Cap nhat them tinh nang xu ly Tieng Viet" />
     <MESSAGE value="Chỉnh sửa docker file và requirements cho phu hop" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chỉnh sửa docker file và requirements cho phu hop" />
+    <MESSAGE value="Dieu chinh su dung pydantic 1.8.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dieu chinh su dung pydantic 1.8.2" />
   </component>
 </project>
