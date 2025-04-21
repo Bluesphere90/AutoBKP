@@ -1,0 +1,52 @@
+project/
+│
+├── app/                      # Mã nguồn chính của ứng dụng
+│   ├── __init__.py
+│   ├── main.py               # Điểm vào chính của ứng dụng
+│   ├── api/                  # API endpoints
+│   │   ├── __init__.py
+│   │   └── routes.py
+│   ├── core/                 # Cấu hình cốt lõi
+│   │   ├── __init__.py
+│   │   ├── config.py         # Cấu hình ứng dụng
+│   │   └── logging.py        # Cấu hình logging
+│   └── ml/                   # Mã nguồn machine learning
+│       ├── __init__.py
+│       ├── data/             # Xử lý dữ liệu
+│       │   ├── __init__.py
+│       │   ├── preprocessing.py
+│       │   └── validation.py
+│       ├── models/           # Định nghĩa và huấn luyện mô hình
+│       │   ├── __init__.py
+│       │   ├── model.py      # Định nghĩa mô hình
+│       │   └── train.py      # Mã huấn luyện
+│       └── inference/        # Mã cho dự đoán
+│           ├── __init__.py
+│           └── predict.py
+│
+├── data/                     # Dữ liệu
+│   ├── raw/                  # Dữ liệu thô
+│   ├── processed/            # Dữ liệu đã tiền xử lý
+│   └── models/               # Lưu trữ mô hình đã huấn luyện
+│
+├── tests/                    # Unit tests
+│   ├── __init__.py
+│   ├── test_preprocessing.py
+│   └── test_model.py
+│
+├── notebooks/                # Jupyter notebooks cho phân tích và thử nghiệm
+│   └── exploratory_analysis.ipynb
+│
+├── scripts/                  # Scripts tiện ích
+│   ├── train_model.py        # Script để huấn luyện mô hình
+│   └── evaluate_model.py     # Script để đánh giá mô hình
+│
+├── configs/                  # Cấu hình
+│   ├── model_config.yaml     # Cấu hình mô hình
+│   └── app_config.yaml       # Cấu hình ứng dụng
+│
+├── Dockerfile                # Cấu hình Docker
+├── docker-compose.yml        # Cấu hình Docker Compose (nếu cần)
+├── requirements.txt          # Danh sách thư viện phụ thuộc
+├── setup.py                  # Cấu hình cài đặt gói
+└── README.md                 # Tài liệu hướng dẫn

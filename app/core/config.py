@@ -1,30 +1,31 @@
 import os
 import yaml
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 from typing import Dict, List, Optional, Any
 from functools import lru_cache
 
 
 class Settings(BaseSettings):
-    # App settings
-    APP_NAME: str = "ml-multiclass-app"
-    DEBUG: bool = False
-    HOST: str = "0.0.0.0"
-    PORT: int = 8000
+    class Settings(BaseSettings):
+        # App settings
+        APP_NAME: str = "ml-multiclass-app"
+        DEBUG: bool = False
+        HOST: str = "0.0.0.0"
+        PORT: int = 8000
 
-    # API settings
-    API_PREFIX: str = "/api/v1"
+        # API settings
+        API_PREFIX: str = "/api/v1"
 
-    # Paths
-    BASE_DIR: str = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    MODEL_PATH: str = os.environ.get("MODEL_PATH", os.path.join(BASE_DIR, "data", "models"))
-    CONFIG_PATH: str = os.environ.get("CONFIG_PATH", os.path.join(BASE_DIR, "configs"))
+        # Paths
+        BASE_DIR: str = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        MODEL_PATH: str = os.environ.get("MODEL_PATH", os.path.join(BASE_DIR, "data", "models"))
+        CONFIG_PATH: str = os.environ.get("CONFIG_PATH", os.path.join(BASE_DIR, "configs"))
 
-    # Logging
-    LOG_LEVEL: str = "INFO"
+        # Logging
+        LOG_LEVEL: str = "INFO"
 
-    class Config:
-        env_file = ".env"
+        class Config:
+            env_file = ".env"
 
 
 @lru_cache()

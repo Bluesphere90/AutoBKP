@@ -147,6 +147,13 @@ class DataPreprocessor:
         if not self.vietnamese_processing:
             X_transformed = self._transform_encoders(X_transformed)
 
+        # Nếu vietnamese_processing được bật, đảm bảo không còn cột chuỗi
+        if self.vietnamese_processing:
+            # Tìm tất cả các cột có kiểu dữ liệu là object (chuỗi)
+            string_cols = X_transformed.select_dtypes(include=['object']).columns
+            # Giữ lại các cột đã được xử lý (không phải chuỗi)
+            X_transformed = X_transformed.select_dtypes(exclude=['object'])
+
         return X_transformed
 
     def fit_transform(self, X: pd.DataFrame, y: pd.Series = None) -> pd.DataFrame:
