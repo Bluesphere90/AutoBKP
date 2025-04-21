@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  ml-api:
+    build: .
+    container_name: ml-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - MODEL_PATH=/app/data/models
+      - CONFIG_PATH=/app/configs
+      - LOG_LEVEL=INFO
+      - DEBUG=true
+    restart: unless-stopped
