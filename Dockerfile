@@ -8,9 +8,6 @@ COPY requirements.txt .
 # Cài đặt các phụ thuộc
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Cài đặt Pydantic mới và pydantic-settings
-RUN pip install --no-cache-dir pydantic>=2.0.0 pydantic-settings
-
 # Sao chép mã nguồn
 COPY . .
 
