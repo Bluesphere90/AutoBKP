@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from typing import Dict, List, Any, Optional
 import numpy as np
 import logging
+import pandas as pd
 
 from app.ml.inference.predict import ModelPredictor
 from app.core.logging import Logger
@@ -106,3 +107,34 @@ async def list_models():
 async def health_check():
     """API health check endpoint."""
     return {"status": "ok"}
+
+
+class BusinessRequest(BaseModel):
+    mst_nguoi_ban: str
+    ten_hang_hoa_dich_vu: str
+
+
+@router.post("/predict_business", response_model=PredictionResponse)
+async def predict_business(request: BusinessRequest):
+    """API endpoint để dự đoán từ thông tin doanh nghiệp và hàng hóa."""
+    try:
+        # Tạo DataFrame với cùng cấu trúc như dữ liệu huấn luyện
+        input_data = pd.DataFrame({
+            "MSTNguoiBan": [request.mst_nguoi_ban],
+            "TenHangHoaDichVu": [request.ten_hang_hoa_dich_vu]
+        })
+
+        # Tiền xử lý dữ liệu sẽ được thực hiện trong predictor.predict
+        class_id, class_name, probabilities = predictor.predict(input_data)
+
+        return PredictionResponse(
+            class_id=class_id,
+            class_name=class_name,
+            probabilities={str(k): float(v) for k, v in probabilities.items()}
+        )
+    except Exception as e:
+        logger.error(f"Prediction error: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Prediction failed: {str(e)}",
+        )
