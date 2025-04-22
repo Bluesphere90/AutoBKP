@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e19cd87d-364f-426d-b82e-fc294bba1614" name="Changes" comment="Dieu chinh su dung pydantic 1.8.2">
-      <change afterPath="$PROJECT_DIR$/app/scripts/predict_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/Mar-Oil.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/scripts/monitor_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/cli.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/ml_client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/scheduler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/nginx.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/scripts/deploy.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/scripts/monitor.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data/raw/TrainingData.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +62,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Python\AutoBKP\deployment" />
       <recent name="D:\Python\AutoBKP\app" />
     </key>
   </component>
@@ -198,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745251326147</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Dieu chinh su dung pydantic 1.8.2">
+      <option name="closed" value="true" />
+      <created>1745253830290</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1745253830290</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
